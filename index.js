@@ -11,6 +11,7 @@ var router = new Router();
 // Using routes
 router.all('/bootstrap', function (ctx) {
     ctx.websocket.on('message', function(message) {
+        console.log(message)
         let data = JSON.parse(message);
         if ( clients[data.from] == undefined ) {
             clients[data.from] = ctx.websocket;
